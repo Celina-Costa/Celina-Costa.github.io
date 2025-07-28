@@ -5,56 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Celina Costa – Resume</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .image-carousel {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      max-width: 100%;
-      overflow: hidden;
-    }
-    .image-carousel img {
-      opacity: 0.4;
-      transform: scale(0.85);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      max-width: 250px;
-      border-radius: 8px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .image-carousel img.active {
-      opacity: 1;
-      transform: translateX(-50%) scale(1.1);
-      z-index: 1;
-    }
-    .carousel-button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2;
-      cursor: pointer;
-    }
-    .carousel-button.left {
-      left: 5%;
-    }
-    .carousel-button.right {
-      right: 5%;
-    }
-    details summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
-    details .carousel-container {
-      margin-top: 10px;
-      position: relative;
-    }
-  </style>
   <script>
     function initCarousel(sectionId) {
       const carousel = document.querySelector(`#${sectionId} .image-carousel`);
