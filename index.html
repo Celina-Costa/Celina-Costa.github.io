@@ -8,35 +8,43 @@
   <style>
     .image-carousel {
       display: flex;
-      overflow: hidden;
-      position: relative;
-      max-width: 100%;
-      height: auto;
       justify-content: center;
       align-items: center;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
     }
     .image-carousel img {
-      display: none;
-      width: 100%;
-      max-width: 400px;
+      opacity: 0.4;
+      transform: scale(0.85);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      max-width: 250px;
       border-radius: 8px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .image-carousel img.active {
-      display: block;
-    }
-    .carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
+      opacity: 1;
+      transform: translateX(-50%) scale(1.1);
+      z-index: 1;
     }
     .carousel-button {
-      background-color: #1a1a1a;
-      border: 1px solid #ccc;
+      background: none;
+      border: none;
       color: white;
-      padding: 5px 10px;
+      font-size: 2rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
       cursor: pointer;
-      border-radius: 5px;
+    }
+    .carousel-button.left {
+      left: 5%;
+    }
+    .carousel-button.right {
+      right: 5%;
     }
     details summary {
       cursor: pointer;
@@ -44,6 +52,7 @@
     }
     details .carousel-container {
       margin-top: 10px;
+      position: relative;
     }
   </style>
   <script>
@@ -51,18 +60,20 @@
       const carousel = document.querySelector(`#${sectionId} .image-carousel`);
       const images = carousel.querySelectorAll('img');
       let currentIndex = 0;
-      images[currentIndex].classList.add('active');
 
-      const updateDisplay = (index) => {
-        images.forEach((img, i) => img.classList.toggle('active', i === index));
-      };
+      function updateDisplay(index) {
+        images.forEach((img, i) => img.classList.remove('active'));
+        images[index].classList.add('active');
+      }
 
-      document.querySelector(`#${sectionId} .prev-btn`).onclick = () => {
+      updateDisplay(currentIndex);
+
+      document.querySelector(`#${sectionId} .carousel-button.left`).onclick = () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         updateDisplay(currentIndex);
       };
 
-      document.querySelector(`#${sectionId} .next-btn`).onclick = () => {
+      document.querySelector(`#${sectionId} .carousel-button.right`).onclick = () => {
         currentIndex = (currentIndex + 1) % images.length;
         updateDisplay(currentIndex);
       };
@@ -114,7 +125,8 @@
           <li>Used Palmer (1982) buoyancy technique for non-destructive measure of tissue and shell mass of Nucella and mussels</li>
           <li>Assisted in field surveys to quantify the relationships between Hemigrapsus, Carcinus, Nucella, and mussel in New England intertidal communities</li>
         </ul>
-        <div class="carousel-container">
+          <div class="carousel-container">
+          <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
             <img src="prey-risk-1.jpg" alt="prey-risk-1">
             <img src="prey-risk-2.jpg" alt="prey-risk-2">
@@ -124,10 +136,7 @@
             <img src="prey-risk-6.jpg" alt="prey-risk-6">
             <img src="prey-risk-7.jpg" alt="prey-risk-7">
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-button prev-btn">&#8592; Prev</button>
-            <button class="carousel-button next-btn">Next &#8594;</button>
-          </div>
+          <button class="carousel-button right">&#8250;</button>
         </div>
       </details>
 
@@ -139,7 +148,8 @@
           <li>Used Soxhlet extraction technique to reduce dehydrated tissue to lipid-free organic material and a furnace to reduce organic material to ash </li>
           <li>Calculated protein and lipid content of prey</li>
         </ul>
-        <div class="carousel-container">
+          <div class="carousel-container">
+          <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
             <img src="energy-risk-1.jpg" alt="energy-risk-1">
             <img src="energy-risk-2.jpg" alt="energy-risk-2">
@@ -147,10 +157,7 @@
             <img src="energy-risk-4.jpg" alt="energy-risk-4">
             <img src="energy-risk-5.jpg" alt="energy-risk-5">
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-button prev-btn">&#8592; Prev</button>
-            <button class="carousel-button next-btn">Next &#8594;</button>
-          </div>
+          <button class="carousel-button right">&#8250;</button>
         </div>
       </details>
 
@@ -161,14 +168,12 @@
           <li>Followed Salimetrics salivary cortisol procedure </li>
           <li>Calculated percent bound and determined cortisol concentrations by interpolation using 4-parameter nonlinear curve fit </li>
         </ul>
-        <div class="carousel-container">
+          <div class="carousel-container">
+          <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
             <img src="eia-lab-1.jpg" alt="eia-lab-1">
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-button prev-btn">&#8592; Prev</button>
-            <button class="carousel-button next-btn">Next &#8594;</button>
-          </div>
+          <button class="carousel-button right">&#8250;</button>
         </div>
       </details>
 
@@ -180,16 +185,14 @@
           <li>Weighed 0.07 ± 0.005 of dry sample and recorded exact mass </li>
           <li>Performed radioimmunoassay and determined cortisol concentrations </li>
         </ul>
-        <div class="carousel-container">
+          <div class="carousel-container">
+          <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
             <img src="deer-1.jpg" alt="deer-1.jpg">
             <img src="deer-2.jpg" alt="deer-2.jpg">
             <img src="deer-3.jpg" alt="deer-3.jpg">
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-button prev-btn">&#8592; Prev</button>
-            <button class="carousel-button next-btn">Next &#8594;</button>
-          </div>
+          <button class="carousel-button right">&#8250;</button>
         </div>
       </details>
 
@@ -201,18 +204,15 @@
           <li>Calculated protein and lipid content  </li>
           <li>Created energetic curves for each species </li>
         </ul>
-        <div class="carousel-container">
+          <div class="carousel-container">
+          <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
             <img src="fish-1.jpg" alt="Sample during soxhlet extraction">
             <img src="fish-2.jpg" alt="Sample during soxhlet extraction">
           </div>
-          <div class="carousel-controls">
-            <button class="carousel-button prev-btn">&#8592; Prev</button>
-            <button class="carousel-button next-btn">Next &#8594;</button>
-          </div>
+          <button class="carousel-button right">&#8250;</button>
         </div>
       </details>
-
 
      <section id="publications">
       <h2>Publications</h2>
@@ -225,24 +225,6 @@
     <section id="experience">
       <h2>Work Experience</h2>
       <ul>
-        <li><strong>Supervisor, Mellisa’s Pet Depot</strong> (2019–2024)<br>
-          <ul>
-            <li>Maintained proper animal husbandry</li>
-            <li>Recognized ailments and administered medication</li>
-            <li>Trimmed/clipped nails and flight feathers</li>
-            <li>Assisted customers regarding pet care and nutrition</li>
-            <li>Trained associates and delegated tasks</li>
-            <li>Placed/received store orders</li>
-          </ul>
-        </li>
-        <li><strong>Manager & Research Associate, Dr. Sheriff’s Lab</strong> (2023–Present)<br>
-          <ul>
-            <li>Trained, assigned, and supervised volunteers on project tasks</li>
-            <li>Collaborated and coordinated with team members</li>
-            <li>Maintained detailed records of project data and progress</li>
-            <li>Managed equipment usage and maintenance logs</li>
-          </ul>
-        </li>
         <li><strong>Technician Assistant, Bay State Veterinary Emergency</strong> (2024–Present)<br>
           <ul>
             <li>Restrained animals during triages, stats, and treatments</li>
@@ -252,10 +234,31 @@
             <li>Supported clients through end-of-life decisions</li>
           </ul>
         </li>
+  
         <li><strong>Research Associate, Dr. Oliveira’s Lab</strong> (2025–Present)<br>
           <ul>
             <li>Collaborated and coordinated with team members</li>
             <li>Maintained detailed records of project data and progress</li>
+          </ul>
+        </li>
+        
+          <li><strong>Supervisor, Mellisa’s Pet Depot</strong> (2019–2024)<br>
+          <ul>
+            <li>Maintained proper animal husbandry</li>
+            <li>Recognized ailments and administered medication</li>
+            <li>Trimmed/clipped nails and flight feathers</li>
+            <li>Assisted customers regarding pet care and nutrition</li>
+            <li>Trained associates and delegated tasks</li>
+            <li>Placed/received store orders</li>
+          </ul>
+        </li>
+        
+        <li><strong>Manager & Research Associate, Dr. Sheriff’s Lab</strong> (2023–Present)<br>
+          <ul>
+            <li>Trained, assigned, and supervised volunteers on project tasks</li>
+            <li>Collaborated and coordinated with team members</li>
+            <li>Maintained detailed records of project data and progress</li>
+            <li>Managed equipment usage and maintenance logs</li>
           </ul>
         </li>
       </ul>
