@@ -65,13 +65,14 @@ nav .button:hover {
 main section {
   padding: 40px 20px;
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 main h2 {
   border-bottom: 2px solid #1e3d59;
   padding-bottom: 5px;
   color: #ffffff;
+  margin-left: 0;
 }
 
 /* Lists and details */
@@ -96,6 +97,67 @@ details p {
   margin-top: 5px;
 }
 
+/* Carousel container */
+.carousel-container {
+  margin-top: 10px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Carousel */
+.image-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.image-carousel img {
+  opacity: 0.4;
+  transform: scale(0.85);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-width: 250px;
+  border-radius: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(0.85);
+  z-index: 0;
+}
+
+.image-carousel img.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.1);
+  z-index: 1;
+}
+
+/* Carousel arrows */
+.carousel-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  padding: 0 10px;
+  user-select: none;
+}
+
+.carousel-button.left {
+  left: 5%;
+}
+
+.carousel-button.right {
+  right: 5%;
+}
+
 /* Footer */
 footer {
   background: #0b1a28;
@@ -105,3 +167,4 @@ footer {
   margin-top: 40px;
   font-size: 0.9em;
 }
+
