@@ -71,7 +71,7 @@ main section {
 main h2 {
   border-bottom: 2px solid #1e3d59;
   padding-bottom: 5px;
-  color: #a0d8ef;
+  color: #ffffff;
 }
 
 /* Lists and details */
@@ -84,11 +84,11 @@ details summary {
   cursor: pointer;
   font-weight: bold;
   margin-top: 10px;
-  color: #a9cbe6;
+  color: #ffffff;
 }
 
 details summary:hover {
-  color: #ffffff;
+  color: #a9cbe6;
 }
 
 details p {
