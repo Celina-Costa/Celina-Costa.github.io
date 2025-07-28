@@ -3,22 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celina Costa – Digital Resume</title>
+  <title>Celina Costa – Resume</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     .image-carousel {
       display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+      max-width: 100%;
+      height: auto;
+      justify-content: center;
+      align-items: center;
     }
     .image-carousel img {
+      display: none;
       width: 100%;
-      max-width: 300px;
+      max-width: 400px;
       border-radius: 8px;
-      scroll-snap-align: start;
-      flex-shrink: 0;
+    }
+    .image-carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .carousel-button {
+      background-color: #1a1a1a;
+      border: 1px solid #ccc;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
     }
     details summary {
       cursor: pointer;
@@ -28,6 +46,37 @@
       margin-top: 10px;
     }
   </style>
+  <script>
+    function initCarousel(sectionId) {
+      const carousel = document.querySelector(`#${sectionId} .image-carousel`);
+      const images = carousel.querySelectorAll('img');
+      let currentIndex = 0;
+      images[currentIndex].classList.add('active');
+
+      const updateDisplay = (index) => {
+        images.forEach((img, i) => img.classList.toggle('active', i === index));
+      };
+
+      document.querySelector(`#${sectionId} .prev-btn`).onclick = () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateDisplay(currentIndex);
+      };
+
+      document.querySelector(`#${sectionId} .next-btn`).onclick = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateDisplay(currentIndex);
+      };
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('section[id^="research-"]').forEach(section => {
+        initCarousel(section.id);
+      });
+      document.querySelectorAll('section[id^="experience-"]').forEach(section => {
+        initCarousel(section.id);
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -54,71 +103,116 @@
       <p>I care deeply about thoughtful, ethical work — and I’m always looking for ways to combine compassion, curiosity, and collaboration in everything I do.</p>
     </section>
 
-     <section id="research">
+    <section id="research-1">
       <h2>Research Experience</h2>
       <details>
         <summary><strong>Prey Risk Responses to a New Invader</strong> (May 2022–Fall 2023)</summary>
-        <p>Marked individuals for growth/refuge use, used buoyancy technique to measure mass, and conducted field surveys on trophic interactions.</p>
+        <ul>
+          <li>Examined how Hemigrapsus	sanguineus disrupts community structure of a resident trophic cascade  </li>
+          <li>Individually marked Nucella and mussels to measure individual growth and refuge use </li>
+          <li>Recorded refuge-use behavior across treatments</li>
+          <li>Used Palmer (1982) buoyancy technique for non-destructive measure of tissue and shell mass of Nucella and mussels</li>
+          <li>Assisted in field surveys to quantify the relationships between Hemigrapsus, Carcinus, Nucella, and mussel in New England intertidal communities</li>
+        </ul>
         <div class="carousel-container">
           <div class="image-carousel">
-            <img src="prey-risk-1.jpg" alt="Fieldwork photo 1">
-            <img src="prey-risk-2.jpg" alt="Fieldwork photo 2">
-            <img src="prey-risk-3.jpg" alt="Fieldwork photo 3">
-            <img src="prey-risk-4.jpg" alt="Fieldwork photo 4">
-            <img src="prey-risk-5.jpg" alt="Fieldwork photo 5">
-            <img src="prey-risk-6.jpg" alt="Fieldwork photo 6">
-            <img src="prey-risk-7.jpg" alt="Fieldwork photo 7">
+            <img src="prey-risk-1.jpg" alt="prey-risk-1">
+            <img src="prey-risk-2.jpg" alt="prey-risk-2">
+            <img src="prey-risk-3.jpg" alt="prey-risk-3">
+            <img src="prey-risk-4.jpg" alt="prey-risk-4">
+            <img src="prey-risk-5.jpg" alt="prey-risk-5">
+            <img src="prey-risk-6.jpg" alt="prey-risk-6">
+            <img src="prey-risk-7.jpg" alt="prey-risk-7">
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button prev-btn">&#8592; Prev</button>
+            <button class="carousel-button next-btn">Next &#8594;</button>
           </div>
         </div>
       </details>
 
       <details>
         <summary><strong>Impact of Predation Risk on Lipid/Protein Levels</strong> (Sep 2022–Apr 2024)</summary>
-        <p>Extracted tissue for PCA, performed Soxhlet extraction and ashing, and calculated nutrient composition.</p>
+        <ul>
+          <li>Investigated impact of predation risk on lipid and protein content of prey using a marine system</li>
+          <li>Extracted tissue from Nucella and mussels for PCA</li>
+          <li>Used Soxhlet extraction technique to reduce dehydrated tissue to lipid-free organic material and a furnace to reduce organic material to ash </li>
+          <li>Calculated protein and lipid content of prey</li>
+        </ul>
         <div class="carousel-container">
           <div class="image-carousel">
-            <img src="energy-risk-1.jpg" alt="Lipid extraction setup">
-            <img src="energy-risk-2.jpg" alt="Protein analysis workspace">
-            <img src="energy-risk-3.jpg" alt="Protein analysis workspace">
-            <img src="energy-risk-4.jpg" alt="Protein analysis workspace">
-            <img src="energy-risk-5.jpg" alt="Protein analysis workspace">
+            <img src="energy-risk-1.jpg" alt="energy-risk-1">
+            <img src="energy-risk-2.jpg" alt="energy-risk-2">
+            <img src="energy-risk-3.jpg" alt="energy-risk-3">
+            <img src="energy-risk-4.jpg" alt="energy-risk-4">
+            <img src="energy-risk-5.jpg" alt="energy-risk-5">
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button prev-btn">&#8592; Prev</button>
+            <button class="carousel-button next-btn">Next &#8594;</button>
           </div>
         </div>
       </details>
 
       <details>
         <summary><strong>Children’s Emotions and Salivary Cortisol</strong> (Nov 2023–Mar 2024)</summary>
-        <p>Conducted salivary cortisol EIA using Salimetrics protocol and 4PL curve fit for hormone quantification.</p>
+          <ul>
+          <li>Performed enzyme immunoassay on saliva samples </li>
+          <li>Followed Salimetrics salivary cortisol procedure </li>
+          <li>Calculated percent bound and determined cortisol concentrations by interpolation using 4-parameter nonlinear curve fit </li>
+        </ul>
         <div class="carousel-container">
           <div class="image-carousel">
-            <img src="eia-lab-1.jpg" alt="Saliva EIA plate">
+            <img src="eia-lab-1.jpg" alt="eia-lab-1">
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button prev-btn">&#8592; Prev</button>
+            <button class="carousel-button next-btn">Next &#8594;</button>
           </div>
         </div>
       </details>
 
       <details>
         <summary><strong>Early Life Ecological Conditions and Deer Health</strong> (Oct 2023–Present)</summary>
-        <p>Processed fecal samples and conducted RIA for cortisol measurement.</p>
+          <ul>
+          <li>Transferred fecal samples into labeled tubes </li>
+          <li>Lyophilized and pulverized fecal samples </li>
+          <li>Weighed 0.07 ± 0.005 of dry sample and recorded exact mass </li>
+          <li>Performed radioimmunoassay and determined cortisol concentrations </li>
+        </ul>
         <div class="carousel-container">
           <div class="image-carousel">
-            <img src="deer-1.jpg" alt="Fecal sample prep">
-            <img src="deer-2.jpg" alt="RIA analysis step">
-            <img src="deer-3.jpg" alt="RIA analysis step">
+            <img src="deer-1.jpg" alt="deer-1.jpg">
+            <img src="deer-2.jpg" alt="deer-2.jpg">
+            <img src="deer-3.jpg" alt="deer-3.jpg">
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button prev-btn">&#8592; Prev</button>
+            <button class="carousel-button next-btn">Next &#8594;</button>
           </div>
         </div>
       </details>
 
       <details>
         <summary><strong>Energetic Analysis of Fish from the Northeast U.S. Shelf</strong> (Apr 2025–Present)</summary>
-        <p>Prepared samples, conducted Soxhlet extractions, and generated energetic curves across species.</p>
+          <ul>
+          <li>Weighed and prepared various species of fish for PCA </li>
+          <li>Used Soxhlet extraction technique to reduce dehydrated tissue to lipid-free organic material and a furnace to reduce organic material to ash  </li>
+          <li>Calculated protein and lipid content  </li>
+          <li>Created energetic curves for each species </li>
+        </ul>
         <div class="carousel-container">
           <div class="image-carousel">
             <img src="fish-1.jpg" alt="Sample during soxhlet extraction">
             <img src="fish-2.jpg" alt="Sample during soxhlet extraction">
           </div>
+          <div class="carousel-controls">
+            <button class="carousel-button prev-btn">&#8592; Prev</button>
+            <button class="carousel-button next-btn">Next &#8594;</button>
+          </div>
         </div>
       </details>
-    </section>
+
 
      <section id="publications">
       <h2>Publications</h2>
