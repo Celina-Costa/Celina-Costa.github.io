@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Celina Costa – Digital Resume</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .image-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    .image-carousel img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    details .carousel-container {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,10 +35,12 @@
     <p>Research Associate & Aspiring Veterinarian</p>
     <nav>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
       <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
       <a href="CelinaCosta_CV.pdf" target="_blank" class="button">Download CV</a>
     </nav>
@@ -25,10 +50,112 @@
     <section id="about">
       <h2>About Me</h2>
       <p>I’m a research associate and aspiring veterinarian with a background in molecular biology, field research, and emergency animal care. I love working hands-on, solving problems, and learning something new every day — whether I’m in the lab or helping with a patient.</p>
+      <p>Outside of science, I’m passionate about art and music. Creativity has taught me to be patient, adaptable, and open to trying things from a new angle. I like figuring things out from scratch and exploring across disciplines, not just staying in one lane.</p>
+      <p>I care deeply about thoughtful, ethical work — and I’m always looking for ways to combine compassion, curiosity, and collaboration in everything I do.</p>
+    </section>
 
-      <p>Outside of science, I’m passionate about art and music. Creativity has taught me to be patient, adaptable, and open to trying things from a new angle. I like figuring things out from scratch and exploring across disciplines.</p>
+     <section id="research">
+      <h2>Research Experience</h2>
+      <details>
+        <summary><strong>Prey Risk Responses to a New Invader</strong> (May 2022–Fall 2023)</summary>
+        <p>Marked individuals for growth/refuge use, used buoyancy technique to measure mass, and conducted field surveys on trophic interactions.</p>
+        <div class="carousel-container">
+          <div class="image-carousel">
+            <img src="prey-risk-1.jpg" alt="Fieldwork photo 1">
+            <img src="prey-risk-2.jpg" alt="Fieldwork photo 2">
+          </div>
+        </div>
+      </details>
 
-      <p>I care deeply about thoughtful, ethical work and I’m always looking for ways to combine compassion, curiosity, and collaboration in everything I do.</p>
+      <details>
+        <summary><strong>Impact of Predation Risk on Lipid/Protein Levels</strong> (Sep 2022–Apr 2024)</summary>
+        <p>Extracted tissue for PCA, performed Soxhlet extraction and ashing, and calculated nutrient composition.</p>
+        <div class="carousel-container">
+          <div class="image-carousel">
+            <img src="energy-risk-1.jpg" alt="Lipid extraction setup">
+            <img src="energy-risk-2.jpg" alt="Protein analysis workspace">
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><strong>Children’s Emotions and Salivary Cortisol</strong> (Nov 2023–Mar 2024)</summary>
+        <p>Conducted salivary cortisol EIA using Salimetrics protocol and 4PL curve fit for hormone quantification.</p>
+        <div class="carousel-container">
+          <div class="image-carousel">
+            <img src="eia-lab-1.jpg" alt="Saliva EIA plate setup">
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><strong>Early Life Ecological Conditions and Deer Health</strong> (Oct 2023–Present)</summary>
+        <p>Processed fecal samples and conducted RIA for cortisol measurement.</p>
+        <div class="carousel-container">
+          <div class="image-carousel">
+            <img src="deer-1.jpg" alt="Fecal sample prep">
+            <img src="deer-2.jpg" alt="RIA analysis step">
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><strong>Energetic Analysis of Fish from the Northeast U.S. Shelf</strong> (Apr 2025–Present)</summary>
+        <p>Prepared samples, conducted Soxhlet extractions, and generated energetic curves across species.</p>
+        <div class="carousel-container">
+          <div class="image-carousel">
+            <img src="fish-1.jpg" alt="Fish sample prep">
+            <img src="fish-2.jpg" alt="Energetic curve chart">
+          </div>
+        </div>
+      </details>
+    </section>
+
+     <section id="publications">
+      <h2>Publications</h2>
+      <ul>
+        <li>Costa CM, DiNuzzo E, Nogueira H, Donelan S, Sheriff MJ (In Review). Predator-induced changes in prey behavior alters the lipid and protein content in both prey and their resources. Submitted to <em>Oecologia</em>.</li>
+        <li>DiNuzzo E, Nogueira H, Donelan S, Sheriff MJ, Costa CM, Costa VA (In Review). Emergent effects of a non-native and resident predator on shared native prey risk responses. Submitted to <em>Functional Ecology</em>.</li>
+      </ul>
+    </section>
+    
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <ul>
+        <li><strong>Supervisor, Mellisa’s Pet Depot</strong> (2019–2024)<br>
+          <ul>
+            <li>Maintained proper animal husbandry</li>
+            <li>Recognized ailments and administered medication</li>
+            <li>Trimmed/clipped nails and flight feathers</li>
+            <li>Assisted customers regarding pet care and nutrition</li>
+            <li>Trained associates and delegated tasks</li>
+            <li>Placed/received store orders</li>
+          </ul>
+        </li>
+        <li><strong>Manager & Research Associate, Dr. Sheriff’s Lab</strong> (2023–Present)<br>
+          <ul>
+            <li>Trained, assigned, and supervised volunteers on project tasks</li>
+            <li>Collaborated and coordinated with team members</li>
+            <li>Maintained detailed records of project data and progress</li>
+            <li>Managed equipment usage and maintenance logs</li>
+          </ul>
+        </li>
+        <li><strong>Technician Assistant, Bay State Veterinary Emergency</strong> (2024–Present)<br>
+          <ul>
+            <li>Restrained animals during triages, stats, and treatments</li>
+            <li>Performed in-house diagnostics using IDEXX, Heska, Zoetis, and Bionote analyzers</li>
+            <li>Observed use of advanced imaging equipment (ultrasound, X-ray, CT, and linear accelerator)</li>
+            <li>Assisted with anesthesia monitoring and post-operative care</li>
+            <li>Supported clients through end-of-life decisions</li>
+          </ul>
+        </li>
+        <li><strong>Research Associate, Dr. Oliveira’s Lab</strong> (2025–Present)<br>
+          <ul>
+            <li>Collaborated and coordinated with team members</li>
+            <li>Maintained detailed records of project data and progress</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <section id="skills">
@@ -38,74 +165,38 @@
         <li>Animal handling and restraint</li>
         <li>Veterinary medical terminology</li>
         <li>Specimen collection and preparation</li>
-        <li>IDEXX, Heska, Zoetis, and Bionote analyzers</li>
+        <li>IDEXX, Heska, Zoetis, and Bionote diagnostic analyzers</li>
       </ul>
       <h3>Laboratory & Research</h3>
       <ul>
-        <li>Cell culture, aseptic technique</li>
+        <li>Cell culture and aseptic technique</li>
         <li>Microscopy, RIA, ELISA</li>
-        <li>Soxhlet extraction, PCR, Gel electrophoresis</li>
+        <li>Soxhlet extraction, PCR, gel electrophoresis</li>
         <li>Scientific writing</li>
       </ul>
       <h3>Data & Technical</h3>
       <ul>
-        <li>R (ANOVA, mixed models, curve fitting)</li>
+        <li>R programming (ANOVA, mixed models, curve fitting)</li>
         <li>Statistical figure/report preparation</li>
-        <li>Microsoft Office, Google Workspace, Adobe CC</li>
+        <li>Microsoft Office, Google Workspace, Adobe Creative Cloud</li>
       </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Research Experience</h2>
-      <details>
-        <summary>Prey Risk Responses to a New Invader</summary>
-        <p>Examined how <em>Hemigrapsus sanguineus</em> alters intertidal trophic cascades. Marked individuals, measured growth/refuge use, and used buoyancy techniques to assess tissue mass.</p>
-      </details>
-      <details>
-        <summary>Impact of Predation Risk on Lipid/Protein Levels</summary>
-        <p>Extracted tissue from <em>Nucella</em> and mussels. Performed Soxhlet lipid extractions and calculated lipid/protein content under varying predator exposure.</p>
-      </details>
-      <details>
-        <summary>Children’s Emotions and Salivary Cortisol</summary>
-        <p>Used enzyme immunoassay (Salimetrics protocol) to determine salivary cortisol. Performed curve fitting and percent bound calculations.</p>
-      </details>
-      <details>
-        <summary>Ecological Conditions and Deer Health</summary>
-        <p>Prepared fecal samples and conducted radioimmunoassays for cortisol concentrations. </p>
-      </details>
-      <details>
-        <summary>Energetic Analysis of Fish</summary>
-        <p>Calculated lipid/protein composition of shelf species using Soxhlet and ashing. Built energetic curves across species.</p>
-      </details>
-    </section>
-
-    <section id="experience">
-      <h2>Work Experience</h2>
-      <details>
-        <summary>Supervisor, Mellisa’s Pet Depot</summary>
-        <p>Managed daily animal care and team training. Administered medication, performed grooming, and assisted with orders.</p>
-      </details>
-      <details>
-        <summary>Manager & Research Associate, Sheriff Lab</summary>
-        <p>Led volunteers, maintained data integrity, coordinated team logistics and equipment records in a busy behavioral ecology lab.</p>
-      </details>
-      <details>
-        <summary>Technician Assistant, Bay State Vet Emergency</summary>
-        <p>Handled in-clinic diagnostics, assisted with anesthesia and advanced imaging, and supported clients during difficult end-of-life care.</p>
-      </details>
-      <details>
-        <summary>Research Associate, Oliveira Lab</summary>
-        <p>Collaborated on research projects and maintained accurate experimental logs and sample handling across multiple studies.</p>
-      </details>
     </section>
 
     <section id="education">
       <h2>Education</h2>
       <p><strong>B.S., Biology – Cell and Molecular Concentration</strong><br>
-      University of Massachusetts Dartmouth<br>
+      University of Massachusetts Dartmouth (2019–2023)<br>
       Commonwealth Honors Program, GPA: 3.6</p>
     </section>
 
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li>John & Abigail Adams Scholarship (2019–2023)</li>
+        <li>UMass Dartmouth Dean’s Scholarship (2019–2023)</li>
+      </ul>
+    </section>   
+    
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:celinacosta136@gmail.com">celinacosta136@gmail.com</a></p>
@@ -118,4 +209,5 @@
   </footer>
 </body>
 </html>
+
 
