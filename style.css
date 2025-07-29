@@ -116,6 +116,7 @@ details p {
   align-items: center;
   position: relative;
   width: 100%;
+  height: auto;
 }
 
 .image-carousel img {
