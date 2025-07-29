@@ -11,7 +11,7 @@ body {
 /* Header */
 header {
   background: #102030;
-  color: #ffffff;
+  color: #d1e3f0;
   text-align: center;
   padding: 40px 20px;
   border-bottom: 2px solid #1f3a52;
@@ -36,27 +36,16 @@ nav {
 nav a {
   display: inline-block;
   margin: 5px 10px;
-  color: #78c0e0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffffff;
-}
-
-nav .button {
   background-color: #1e90ff;
   color: white !important;
   padding: 8px 16px;
   border-radius: 5px;
-  margin-left: 10px;
   text-decoration: none;
+  font-weight: 500;
   transition: background-color 0.3s, transform 0.3s;
 }
 
-nav .button:hover {
+nav a:hover {
   background-color: #63b3ed;
   transform: translateY(-2px);
 }
@@ -65,21 +54,37 @@ nav .button:hover {
 main section {
   padding: 40px 20px;
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 main h2 {
   border-bottom: 2px solid #1e3d59;
   padding-bottom: 5px;
   color: #ffffff;
-  margin: auto;
+}
+
+/* Normalize spacing across elements */
+ul, p, h2, details, summary {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+details {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+details summary {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 /* Lists and details */
 ul {
   list-style-type: square;
   padding-left: 20px;
-  margin-top: 10px;
 }
 
 details summary {
@@ -95,7 +100,6 @@ details summary:hover {
 
 details p {
   margin-left: 20px;
-  padding-left: 20px;
   margin-top: 5px;
 }
 
@@ -117,7 +121,6 @@ details p {
   align-items: center;
   position: relative;
   width: 100%;
-  height: auto;
 }
 
 .image-carousel img {
@@ -171,3 +174,19 @@ footer {
   font-size: 0.9em;
 }
 
+/* Contact CV download button */
+#contact .download-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #1e90ff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#contact .download-button:hover {
+  background-color: #63b3ed;
+  transform: translateY(-2px);
+}
