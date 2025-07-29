@@ -5,39 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Celina Costa – Resume</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    function initCarousel(sectionId) {
-      const carousel = document.querySelector(`#${sectionId} .image-carousel`);
-      const images = carousel.querySelectorAll('img');
-      let currentIndex = 0;
+ <script>
+  function initCarousel(carouselContainer) {
+    const images = carouselContainer.querySelectorAll('.image-carousel img');
+    let currentIndex = 0;
 
-      function updateDisplay(index) {
-        images.forEach((img, i) => img.classList.remove('active'));
+    function updateDisplay(index) {
+      images.forEach((img, i) => img.classList.remove('active'));
+      if (images[index]) {
         images[index].classList.add('active');
       }
+    }
 
-      updateDisplay(currentIndex);
+    updateDisplay(currentIndex);
 
-      document.querySelector(`#${sectionId} .carousel-button.left`).onclick = () => {
+    const leftBtn = carouselContainer.querySelector('.carousel-button.left');
+    const rightBtn = carouselContainer.querySelector('.carousel-button.right');
+
+    if (leftBtn && rightBtn) {
+      leftBtn.onclick = () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         updateDisplay(currentIndex);
       };
 
-      document.querySelector(`#${sectionId} .carousel-button.right`).onclick = () => {
+      rightBtn.onclick = () => {
         currentIndex = (currentIndex + 1) % images.length;
         updateDisplay(currentIndex);
       };
     }
+  }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('section[id^="research-"]').forEach(section => {
-        initCarousel(section.id);
-      });
-      document.querySelectorAll('section[id^="experience-"]').forEach(section => {
-        initCarousel(section.id);
-      });
-    });
-  </script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.carousel-container').forEach(initCarousel);
+  });
+</script>
 </head>
 <body>
   <header>
@@ -52,7 +53,6 @@
       <a href="#education">Education</a>
       <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
-      <a href="CelinaCosta_CV.pdf" target="_blank" class="button">Download CV</a>
     </nav>
   </header>
 
@@ -78,7 +78,7 @@
           <div class="carousel-container">
           <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
-            <img src="prey-risk-1.jpg" alt="prey-risk-1">
+            <img src="prey-risk-1.jpg" alt="prey-risk-1" class="active">
             <img src="prey-risk-2.jpg" alt="prey-risk-2">
             <img src="prey-risk-3.jpg" alt="prey-risk-3">
             <img src="prey-risk-4.jpg" alt="prey-risk-4">
@@ -101,7 +101,7 @@
           <div class="carousel-container">
           <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
-            <img src="energy-risk-1.jpg" alt="energy-risk-1">
+            <img src="energy-risk-1.jpg" alt="energy-risk-1" class="active">
             <img src="energy-risk-2.jpg" alt="energy-risk-2">
             <img src="energy-risk-3.jpg" alt="energy-risk-3">
             <img src="energy-risk-4.jpg" alt="energy-risk-4">
@@ -121,7 +121,7 @@
           <div class="carousel-container">
           <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
-            <img src="eia-lab-1.jpg" alt="eia-lab-1">
+            <img src="eia-lab-1.jpg" alt="eia-lab-1" class="active">
           </div>
           <button class="carousel-button right">&#8250;</button>
         </div>
@@ -138,7 +138,7 @@
           <div class="carousel-container">
           <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
-            <img src="deer-1.jpg" alt="deer-1.jpg">
+            <img src="deer-1.jpg" alt="deer-1.jpg" class="active">
             <img src="deer-2.jpg" alt="deer-2.jpg">
             <img src="deer-3.jpg" alt="deer-3.jpg">
           </div>
@@ -157,7 +157,7 @@
           <div class="carousel-container">
           <button class="carousel-button left">&#8249;</button>
           <div class="image-carousel">
-            <img src="fish-1.jpg" alt="Sample during soxhlet extraction">
+            <img src="fish-1.jpg" alt="Sample during soxhlet extraction" class="active">
             <img src="fish-2.jpg" alt="Sample during soxhlet extraction">
           </div>
           <button class="carousel-button right">&#8250;</button>
@@ -251,6 +251,7 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:celinacosta136@gmail.com">celinacosta136@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/celina-costa-750659328/" target="_blank">celina-costa</a></p>
+      <a href="CelinaCosta_CV.pdf" target="_blank" class="download-button">Download CV</a>
     </section>
   </main>
 
