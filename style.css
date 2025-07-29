@@ -66,20 +66,20 @@ main section {
   padding: 40px 20px;
   max-width: 900px;
   margin: auto;
-  margin-left: 0;
 }
 
 main h2 {
   border-bottom: 2px solid #1e3d59;
   padding-bottom: 5px;
   color: #ffffff;
-  margin-left: 0;
+  margin: auto;
 }
 
 /* Lists and details */
 ul {
   list-style-type: square;
   padding-left: 20px;
+  margin-top: 10px;
 }
 
 details summary {
@@ -95,6 +95,7 @@ details summary:hover {
 
 details p {
   margin-left: 20px;
+  padding-left: 20px;
   margin-top: 5px;
 }
 
